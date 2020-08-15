@@ -1,18 +1,18 @@
 //
-//  SecondViewController.m
+//  FirstViewController.m
 //  WorkoutTracker
 //
 //  Created by David Guilfoyle on 8/11/20.
 //  Copyright © 2020 David Guilfoyle. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "WorkoutsViewController.h"
 
-@interface SecondViewController ()
+@interface WorkoutsViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation WorkoutsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

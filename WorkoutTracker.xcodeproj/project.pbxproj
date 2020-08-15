@@ -10,8 +10,8 @@
 		C0F9922A9FDB61D541F16D7E /* Pods_WorkoutTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44026E5E03ED00345F877019 /* Pods_WorkoutTracker.framework */; };
 		F07E451024E3751C0007CF6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F07E450F24E3751C0007CF6E /* AppDelegate.m */; };
 		F07E451324E3751C0007CF6E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F07E451224E3751C0007CF6E /* SceneDelegate.m */; };
-		F07E451624E3751C0007CF6E /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F07E451524E3751C0007CF6E /* FirstViewController.m */; };
-		F07E451924E3751C0007CF6E /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F07E451824E3751C0007CF6E /* SecondViewController.m */; };
+		F07E451624E3751C0007CF6E /* WorkoutsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F07E451524E3751C0007CF6E /* WorkoutsViewController.m */; };
+		F07E451924E3751C0007CF6E /* AnalyticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F07E451824E3751C0007CF6E /* AnalyticsViewController.m */; };
 		F07E451C24E3751C0007CF6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F07E451A24E3751C0007CF6E /* Main.storyboard */; };
 		F07E451E24E3751D0007CF6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F07E451D24E3751D0007CF6E /* Assets.xcassets */; };
 		F07E452124E3751D0007CF6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F07E451F24E3751D0007CF6E /* LaunchScreen.storyboard */; };
@@ -28,10 +28,10 @@
 		F07E450F24E3751C0007CF6E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F07E451124E3751C0007CF6E /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		F07E451224E3751C0007CF6E /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		F07E451424E3751C0007CF6E /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		F07E451524E3751C0007CF6E /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		F07E451724E3751C0007CF6E /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		F07E451824E3751C0007CF6E /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		F07E451424E3751C0007CF6E /* WorkoutsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkoutsViewController.h; sourceTree = "<group>"; };
+		F07E451524E3751C0007CF6E /* WorkoutsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkoutsViewController.m; sourceTree = "<group>"; };
+		F07E451724E3751C0007CF6E /* AnalyticsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnalyticsViewController.h; sourceTree = "<group>"; };
+		F07E451824E3751C0007CF6E /* AnalyticsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnalyticsViewController.m; sourceTree = "<group>"; };
 		F07E451B24E3751C0007CF6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F07E451D24E3751D0007CF6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F07E452024E3751D0007CF6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -96,10 +96,10 @@
 				F07E450F24E3751C0007CF6E /* AppDelegate.m */,
 				F07E451124E3751C0007CF6E /* SceneDelegate.h */,
 				F07E451224E3751C0007CF6E /* SceneDelegate.m */,
-				F07E451424E3751C0007CF6E /* FirstViewController.h */,
-				F07E451524E3751C0007CF6E /* FirstViewController.m */,
-				F07E451724E3751C0007CF6E /* SecondViewController.h */,
-				F07E451824E3751C0007CF6E /* SecondViewController.m */,
+				F07E451424E3751C0007CF6E /* WorkoutsViewController.h */,
+				F07E451524E3751C0007CF6E /* WorkoutsViewController.m */,
+				F07E451724E3751C0007CF6E /* AnalyticsViewController.h */,
+				F07E451824E3751C0007CF6E /* AnalyticsViewController.m */,
 				F07E451A24E3751C0007CF6E /* Main.storyboard */,
 				F07E451D24E3751D0007CF6E /* Assets.xcassets */,
 				F07E451F24E3751D0007CF6E /* LaunchScreen.storyboard */,
@@ -227,9 +227,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F07E452424E3751D0007CF6E /* main.m in Sources */,
-				F07E451924E3751C0007CF6E /* SecondViewController.m in Sources */,
+				F07E451924E3751C0007CF6E /* AnalyticsViewController.m in Sources */,
 				F07E451024E3751C0007CF6E /* AppDelegate.m in Sources */,
-				F07E451624E3751C0007CF6E /* FirstViewController.m in Sources */,
+				F07E451624E3751C0007CF6E /* WorkoutsViewController.m in Sources */,
 				F07E451324E3751C0007CF6E /* SceneDelegate.m in Sources */,
 				F0A952D524E88D7A00013DBF /* WorkoutType.m in Sources */,
 			);
