@@ -10,6 +10,9 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+@property (nonatomic, strong) RLMRealm *realm;
+
++ (AppDelegate *)sharedAppDelegate;
 
 @end
 

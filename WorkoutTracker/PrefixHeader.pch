@@ -1,0 +1,19 @@
+//
+//  PrefixHeader.pch
+//  WorkoutTracker
+//
+//  Created by David Guilfoyle on 8/15/20.
+//  Copyright © 2020 David Guilfoyle. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#import <Realm/Realm.h>
+#import "AppDelegate.h"
+
+#endif /* PrefixHeader_pch */

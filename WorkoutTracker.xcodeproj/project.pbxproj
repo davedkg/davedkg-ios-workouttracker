@@ -16,6 +16,7 @@
 		F07E451E24E3751D0007CF6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F07E451D24E3751D0007CF6E /* Assets.xcassets */; };
 		F07E452124E3751D0007CF6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F07E451F24E3751D0007CF6E /* LaunchScreen.storyboard */; };
 		F07E452424E3751D0007CF6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F07E452324E3751D0007CF6E /* main.m */; };
+		F0A952D524E88D7A00013DBF /* WorkoutType.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A952D424E88D7A00013DBF /* WorkoutType.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,9 @@
 		F07E452024E3751D0007CF6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F07E452224E3751D0007CF6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F07E452324E3751D0007CF6E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F0A952D324E88D7A00013DBF /* WorkoutType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkoutType.h; sourceTree = "<group>"; };
+		F0A952D424E88D7A00013DBF /* WorkoutType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkoutType.m; sourceTree = "<group>"; };
+		F0A952D624E88DD700013DBF /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,9 @@
 				F07E451F24E3751D0007CF6E /* LaunchScreen.storyboard */,
 				F07E452224E3751D0007CF6E /* Info.plist */,
 				F07E452324E3751D0007CF6E /* main.m */,
+				F0A952D324E88D7A00013DBF /* WorkoutType.h */,
+				F0A952D424E88D7A00013DBF /* WorkoutType.m */,
+				F0A952D624E88DD700013DBF /* PrefixHeader.pch */,
 			);
 			path = WorkoutTracker;
 			sourceTree = "<group>";
@@ -224,6 +231,7 @@
 				F07E451024E3751C0007CF6E /* AppDelegate.m in Sources */,
 				F07E451624E3751C0007CF6E /* FirstViewController.m in Sources */,
 				F07E451324E3751C0007CF6E /* SceneDelegate.m in Sources */,
+				F0A952D524E88D7A00013DBF /* WorkoutType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +374,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9RM8BN2R29;
+				GCC_PREFIX_HEADER = "${SRCROOT}/WorkoutTracker/PrefixHeader.pch";
 				INFOPLIST_FILE = WorkoutTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -384,6 +393,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9RM8BN2R29;
+				GCC_PREFIX_HEADER = "${SRCROOT}/WorkoutTracker/PrefixHeader.pch";
 				INFOPLIST_FILE = WorkoutTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
