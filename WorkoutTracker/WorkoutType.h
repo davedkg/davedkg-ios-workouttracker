@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WorkoutType : RLMObject <XLFormOptionObject>
 
+@property RLMObjectId *_id;
 @property NSString *name;
 
 + (RLMResults *)all;

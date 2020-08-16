@@ -10,7 +10,20 @@
 
 @implementation WorkoutType
 
+#pragma mark - Lifecycle
+
+- (instancetype)init {
+    if ((self = [super init])) {
+        self._id = [RLMObjectId objectId];
+    }
+    return self;
+}
+
 #pragma mark - Realm
+
++ (NSString *)primaryKey {
+    return @"_id";
+}
 
 + (NSArray *)requiredProperties
 {

@@ -33,22 +33,16 @@
 {
     RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
     
-    // Set either the path for the file or the identifer for an in-memory Realm
-    // By default config.path will be the Default realm path
-//    config.path = "";
-    // config.inMemoryIdentifier = @"MyInMemoryRealm";
+    config.schemaVersion  = 2;
+    config.migrationBlock = ^(RLMMigration *migration, uint64_t oldSchemaVersion) {
+        if (oldSchemaVersion < 2) {
+            [migration enumerateObjects:WorkoutType.className
+                                  block:^(RLMObject *oldObject, RLMObject *newObject) {
+                newObject[@"_id"] = [RLMObjectId objectId];
+            }];
+        }
+    };
 
-    // Encryption keys, schema versions and migration blocks are now all set on the
-    // config object rather than registered for a path:
-//    config.encryptionKey = GetKeyFromKeychain();
-    config.schemaVersion = 1;
-//    config.migrationBlock = ^(RLMMigration *migration, uint64_t oldSchemaVersion) {
-//        // do stuff
-//    };
-
-    // New feature: a Realm configuration can explicitly list which object classes
-    // should be stored in the Realm, rather than always including every `RLMObject`
-    // and `Object` subclass.
     config.objectClasses = @[WorkoutType.class];
     
     [RLMRealmConfiguration setDefaultConfiguration:config];
