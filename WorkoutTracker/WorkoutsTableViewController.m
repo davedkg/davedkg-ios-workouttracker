@@ -50,6 +50,7 @@
 - (void)dealloc
 {
     [self.realmNotificationToken invalidate];
+    self.realmNotificationToken = nil;
 }
 
 #pragma mark - Table view data source
