@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "WorkoutType.h"
+#import "Workout.h"
 
 @interface AppDelegate ()
 
@@ -33,7 +34,7 @@
 {
     RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
     
-    config.schemaVersion  = 2;
+    config.schemaVersion  = 5;
     config.migrationBlock = ^(RLMMigration *migration, uint64_t oldSchemaVersion) {
         if (oldSchemaVersion < 2) {
             [migration enumerateObjects:WorkoutType.className
@@ -41,9 +42,24 @@
                 newObject[@"_id"] = [RLMObjectId objectId];
             }];
         }
+        
+        if (oldSchemaVersion < 3) {
+            [migration enumerateObjects:WorkoutType.className
+                                  block:^(RLMObject *oldObject, RLMObject *newObject) {
+                newObject[@"workouts"] = @[];
+            }];
+        }
+        
+        if (oldSchemaVersion < 5) {
+            [migration enumerateObjects:Workout.className
+                                  block:^(RLMObject *oldObject, RLMObject *newObject) {}];
+        }
     };
 
-    config.objectClasses = @[WorkoutType.class];
+    config.objectClasses = @[
+        WorkoutType.class,
+        Workout.class
+    ];
     
     [RLMRealmConfiguration setDefaultConfiguration:config];
     

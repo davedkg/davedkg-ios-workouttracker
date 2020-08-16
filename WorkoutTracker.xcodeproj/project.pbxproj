@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C0F9922A9FDB61D541F16D7E /* Pods_WorkoutTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44026E5E03ED00345F877019 /* Pods_WorkoutTracker.framework */; };
 		F040E69A24E8A52E00DFF22C /* NewWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F040E69924E8A52E00DFF22C /* NewWorkoutViewController.m */; };
+		F040E6A024E8B56400DFF22C /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = F040E69F24E8B56400DFF22C /* Workout.m */; };
 		F07E451024E3751C0007CF6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F07E450F24E3751C0007CF6E /* AppDelegate.m */; };
 		F07E451324E3751C0007CF6E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F07E451224E3751C0007CF6E /* SceneDelegate.m */; };
 		F07E451624E3751C0007CF6E /* WorkoutsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F07E451524E3751C0007CF6E /* WorkoutsViewController.m */; };
@@ -26,6 +27,8 @@
 		6A89AB8E31F73DFF2DFC8837 /* Pods-WorkoutTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkoutTracker.debug.xcconfig"; path = "Target Support Files/Pods-WorkoutTracker/Pods-WorkoutTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		F040E69824E8A52E00DFF22C /* NewWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewWorkoutViewController.h; sourceTree = "<group>"; };
 		F040E69924E8A52E00DFF22C /* NewWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewWorkoutViewController.m; sourceTree = "<group>"; };
+		F040E69E24E8B56400DFF22C /* Workout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Workout.h; sourceTree = "<group>"; };
+		F040E69F24E8B56400DFF22C /* Workout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Workout.m; sourceTree = "<group>"; };
 		F07E450B24E3751C0007CF6E /* WorkoutTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F07E450E24E3751C0007CF6E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F07E450F24E3751C0007CF6E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 				F040E69924E8A52E00DFF22C /* NewWorkoutViewController.m */,
 				F0A952D324E88D7A00013DBF /* WorkoutType.h */,
 				F0A952D424E88D7A00013DBF /* WorkoutType.m */,
+				F040E69E24E8B56400DFF22C /* Workout.h */,
+				F040E69F24E8B56400DFF22C /* Workout.m */,
 				F07E450E24E3751C0007CF6E /* AppDelegate.h */,
 				F07E450F24E3751C0007CF6E /* AppDelegate.m */,
 				F07E451124E3751C0007CF6E /* SceneDelegate.h */,
@@ -238,6 +243,7 @@
 				F07E451624E3751C0007CF6E /* WorkoutsViewController.m in Sources */,
 				F07E451324E3751C0007CF6E /* SceneDelegate.m in Sources */,
 				F0A952D524E88D7A00013DBF /* WorkoutType.m in Sources */,
+				F040E6A024E8B56400DFF22C /* Workout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
