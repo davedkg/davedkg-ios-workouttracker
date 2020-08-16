@@ -39,7 +39,7 @@
                     <navigationItem key="navigationItem" title="Workouts" id="f3p-N2-NzF">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ekm-Y8-Ufk">
                             <connections>
-                                <segue destination="frb-8Q-rIU" kind="presentation" id="Nzf-qa-828"/>
+                                <segue destination="f5f-vF-t5o" kind="presentation" id="Nzf-qa-828"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -48,40 +48,33 @@
             </objects>
             <point key="canvasLocation" x="1659.4202898550725" y="-320.08928571428572"/>
         </scene>
-        <!--New Workout View Controller-->
+        <!--New Workout-->
         <scene sceneID="fbu-jp-uIj">
             <objects>
-                <viewController id="frb-8Q-rIU" customClass="NewWorkoutViewController" sceneMemberID="viewController">
+                <viewController title="New Workout" id="frb-8Q-rIU" customClass="NewWorkoutViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l9N-Jk-UOW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6In-C8-SyW">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="New Workout" id="EWd-sz-VYV">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PvX-o2-z3n">
-                                            <connections>
-                                                <action selector="cancelButtonPressed:" destination="frb-8Q-rIU" id="JqQ-PZ-rFF"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="B4l-m7-vgC">
-                                            <connections>
-                                                <action selector="saveButtonPressed:" destination="frb-8Q-rIU" id="0x5-bz-GWG"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="rFi-Vb-R0C"/>
                     </view>
+                    <navigationItem key="navigationItem" title="New Workout" id="EN6-u5-9Qj">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3zF-2S-Nr9">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="frb-8Q-rIU" id="Exp-sV-4rN"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="uy1-QC-fej">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="frb-8Q-rIU" id="d0n-St-zsI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HUf-GR-uGk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2529" y="-320"/>
+            <point key="canvasLocation" x="3439.130434782609" y="-320.08928571428572"/>
         </scene>
         <!--Analytics-->
         <scene sceneID="wg7-f3-ORb">
@@ -154,6 +147,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5p7-Zr-cqw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749.27536231884062" y="-320.08928571428572"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rBS-7H-9R6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f5f-vF-t5o" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zJW-Nz-p1p">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="frb-8Q-rIU" kind="relationship" relationship="rootViewController" id="hQ4-Ck-pd6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JHr-Rq-0AK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2528.985507246377" y="-320.08928571428572"/>
         </scene>
     </scenes>
     <resources>

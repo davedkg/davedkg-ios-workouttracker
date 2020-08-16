@@ -10,12 +10,28 @@
 
 @implementation WorkoutType
 
+#pragma mark - Realm
+
 + (NSArray *)requiredProperties
 {
     return @[@"name"];
 }
 
-+ (RLMResults *)workoutTypes
+#pragma mark - XLFormOptionObject
+
+- (NSString *)formDisplayText
+{
+    return self.name;
+}
+
+- (id)formValue
+{
+    return self;
+}
+
+#pragma mark - Public Meethods
+
++ (RLMResults *)all
 {
     return [self allObjectsInRealm:[AppDelegate sharedAppDelegate].realm];
 }
@@ -24,7 +40,7 @@
 {
     NSString *condition = [NSString stringWithFormat:@"name == '%@'", name];
     
-    return 0 != [[[self workoutTypes] objectsWhere:condition] count];
+    return 0 != [[[self all] objectsWhere:condition] count];
 }
 
 @end

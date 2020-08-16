@@ -7,15 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XLForm.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface WorkoutType : RLMObject
+@interface WorkoutType : RLMObject <XLFormOptionObject>
 
 @property NSString *name;
 
-+ (RLMResults *)workoutTypes;
++ (RLMResults *)all;
 + (BOOL)hasWorkoutTypeWithName:(NSString *)name;
+
+- (NSString *)formDisplayText;
+- (id)formValue;
 
 @end
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C0F9922A9FDB61D541F16D7E /* Pods_WorkoutTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44026E5E03ED00345F877019 /* Pods_WorkoutTracker.framework */; };
+		F040E69A24E8A52E00DFF22C /* NewWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F040E69924E8A52E00DFF22C /* NewWorkoutViewController.m */; };
 		F07E451024E3751C0007CF6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F07E450F24E3751C0007CF6E /* AppDelegate.m */; };
 		F07E451324E3751C0007CF6E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F07E451224E3751C0007CF6E /* SceneDelegate.m */; };
 		F07E451624E3751C0007CF6E /* WorkoutsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F07E451524E3751C0007CF6E /* WorkoutsViewController.m */; };
@@ -16,7 +17,6 @@
 		F07E451E24E3751D0007CF6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F07E451D24E3751D0007CF6E /* Assets.xcassets */; };
 		F07E452124E3751D0007CF6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F07E451F24E3751D0007CF6E /* LaunchScreen.storyboard */; };
 		F07E452424E3751D0007CF6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F07E452324E3751D0007CF6E /* main.m */; };
-		F0A1579F24E8A21300C4034D /* NewWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A1579E24E8A21300C4034D /* NewWorkoutViewController.m */; };
 		F0A952D524E88D7A00013DBF /* WorkoutType.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A952D424E88D7A00013DBF /* WorkoutType.m */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +24,8 @@
 		15AEE24EABFE93DC86D4FBBC /* Pods-WorkoutTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkoutTracker.release.xcconfig"; path = "Target Support Files/Pods-WorkoutTracker/Pods-WorkoutTracker.release.xcconfig"; sourceTree = "<group>"; };
 		44026E5E03ED00345F877019 /* Pods_WorkoutTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkoutTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A89AB8E31F73DFF2DFC8837 /* Pods-WorkoutTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkoutTracker.debug.xcconfig"; path = "Target Support Files/Pods-WorkoutTracker/Pods-WorkoutTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		F040E69824E8A52E00DFF22C /* NewWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewWorkoutViewController.h; sourceTree = "<group>"; };
+		F040E69924E8A52E00DFF22C /* NewWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewWorkoutViewController.m; sourceTree = "<group>"; };
 		F07E450B24E3751C0007CF6E /* WorkoutTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F07E450E24E3751C0007CF6E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F07E450F24E3751C0007CF6E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -38,8 +40,6 @@
 		F07E452024E3751D0007CF6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F07E452224E3751D0007CF6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F07E452324E3751D0007CF6E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F0A1579D24E8A21300C4034D /* NewWorkoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewWorkoutViewController.h; sourceTree = "<group>"; };
-		F0A1579E24E8A21300C4034D /* NewWorkoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewWorkoutViewController.m; sourceTree = "<group>"; };
 		F0A952D324E88D7A00013DBF /* WorkoutType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkoutType.h; sourceTree = "<group>"; };
 		F0A952D424E88D7A00013DBF /* WorkoutType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkoutType.m; sourceTree = "<group>"; };
 		F0A952D624E88DD700013DBF /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -95,6 +95,10 @@
 		F07E450D24E3751C0007CF6E /* WorkoutTracker */ = {
 			isa = PBXGroup;
 			children = (
+				F040E69824E8A52E00DFF22C /* NewWorkoutViewController.h */,
+				F040E69924E8A52E00DFF22C /* NewWorkoutViewController.m */,
+				F0A952D324E88D7A00013DBF /* WorkoutType.h */,
+				F0A952D424E88D7A00013DBF /* WorkoutType.m */,
 				F07E450E24E3751C0007CF6E /* AppDelegate.h */,
 				F07E450F24E3751C0007CF6E /* AppDelegate.m */,
 				F07E451124E3751C0007CF6E /* SceneDelegate.h */,
@@ -108,11 +112,7 @@
 				F07E451F24E3751D0007CF6E /* LaunchScreen.storyboard */,
 				F07E452224E3751D0007CF6E /* Info.plist */,
 				F07E452324E3751D0007CF6E /* main.m */,
-				F0A952D324E88D7A00013DBF /* WorkoutType.h */,
-				F0A952D424E88D7A00013DBF /* WorkoutType.m */,
 				F0A952D624E88DD700013DBF /* PrefixHeader.pch */,
-				F0A1579D24E8A21300C4034D /* NewWorkoutViewController.h */,
-				F0A1579E24E8A21300C4034D /* NewWorkoutViewController.m */,
 			);
 			path = WorkoutTracker;
 			sourceTree = "<group>";
@@ -232,7 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F07E452424E3751D0007CF6E /* main.m in Sources */,
-				F0A1579F24E8A21300C4034D /* NewWorkoutViewController.m in Sources */,
+				F040E69A24E8A52E00DFF22C /* NewWorkoutViewController.m in Sources */,
 				F07E451924E3751C0007CF6E /* AnalyticsViewController.m in Sources */,
 				F07E451024E3751C0007CF6E /* AppDelegate.m in Sources */,
 				F07E451624E3751C0007CF6E /* WorkoutsViewController.m in Sources */,

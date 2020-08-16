@@ -2,17 +2,21 @@ PODS:
   - Realm (10.0.0-beta.2):
     - Realm/Headers (= 10.0.0-beta.2)
   - Realm/Headers (10.0.0-beta.2)
+  - XLForm (4.1.0)
 
 DEPENDENCIES:
   - Realm (= 10.0.0-beta.2)
+  - XLForm (~> 4.1.0)
 
 SPEC REPOS:
   trunk:
     - Realm
+    - XLForm
 
 SPEC CHECKSUMS:
   Realm: 211e32e680c354c9b1a2bdc0e3aeb01c25849641
+  XLForm: 7ee02761be8a369d1ad1bbffe738b97083d94f3e
 
-PODFILE CHECKSUM: 7fc4dba39f0f0080b2a6d55241b04f02df25523d
+PODFILE CHECKSUM: 7554ded2ad55022dd38e6f2912a2febb94c69ea1
 
 COCOAPODS: 1.9.3
