@@ -9,6 +9,7 @@
 #import "WorkoutsTableViewController.h"
 #import "Workout.h"
 #import "WorkoutType.h"
+#import "WorkoutViewController.h"
 
 @interface WorkoutsTableViewController ()
 
@@ -83,6 +84,18 @@
         [self.realm transactionWithBlock:^() {
             [self.realm deleteObject:workout];
         }];
+    }
+}
+
+#pragma mark - Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([@"ShowWorkout" isEqualToString:segue.identifier]) {
+        WorkoutViewController *workoutViewController = [[(UINavigationController *)segue.destinationViewController viewControllers] firstObject];
+        Workout *workout                             = [self.workouts objectAtIndex:[self.tableView indexPathForCell:sender].row];
+        
+        workoutViewController.workout = workout;
     }
 }
 

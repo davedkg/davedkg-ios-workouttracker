@@ -16,23 +16,20 @@
 
 @interface NewWorkoutViewController ()
 
-@property (nonatomic, strong, readonly) RLMRealm *realm;
+@property (nonatomic, readonly) RLMRealm *realm;
 @property (nonatomic, strong, readonly) NSArray  *workoutTypes;
 
 @end
 
 @implementation NewWorkoutViewController
 
-@synthesize realm=_realm,workoutTypes=_workoutTypes;
+@synthesize workoutTypes=_workoutTypes;
 
 #pragma mark - Getters/Setters
 
 - (RLMRealm *)realm
 {
-    if (nil == _realm) {
-        _realm = [AppDelegate sharedAppDelegate].realm;
-    }
-    return _realm;
+    return [AppDelegate sharedAppDelegate].realm;
 }
 
 - (NSArray *)workoutTypes
@@ -83,7 +80,8 @@
 
 #pragma mark - Initializers
 
-- (void)initializeForm {
+- (void)initializeForm
+{
     XLFormDescriptor *form;
     XLFormSectionDescriptor *section;
     XLFormRowDescriptor *row;

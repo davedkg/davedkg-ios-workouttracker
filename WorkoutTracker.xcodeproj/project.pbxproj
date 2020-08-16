@@ -12,6 +12,7 @@
 		F040E6A024E8B56400DFF22C /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = F040E69F24E8B56400DFF22C /* Workout.m */; };
 		F040E6A424E8BF5C00DFF22C /* ApplicationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F040E6A324E8BF5C00DFF22C /* ApplicationModel.m */; };
 		F040E6A724E9B99600DFF22C /* WorkoutsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F040E6A624E9B99600DFF22C /* WorkoutsTableViewController.m */; };
+		F040E6AA24E9CA5F00DFF22C /* WorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F040E6A924E9CA5F00DFF22C /* WorkoutViewController.m */; };
 		F07E451024E3751C0007CF6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F07E450F24E3751C0007CF6E /* AppDelegate.m */; };
 		F07E451324E3751C0007CF6E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F07E451224E3751C0007CF6E /* SceneDelegate.m */; };
 		F07E451924E3751C0007CF6E /* AnalyticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F07E451824E3751C0007CF6E /* AnalyticsViewController.m */; };
@@ -34,6 +35,8 @@
 		F040E6A324E8BF5C00DFF22C /* ApplicationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplicationModel.m; sourceTree = "<group>"; };
 		F040E6A524E9B99600DFF22C /* WorkoutsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkoutsTableViewController.h; sourceTree = "<group>"; };
 		F040E6A624E9B99600DFF22C /* WorkoutsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkoutsTableViewController.m; sourceTree = "<group>"; };
+		F040E6A824E9CA5F00DFF22C /* WorkoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkoutViewController.h; sourceTree = "<group>"; };
+		F040E6A924E9CA5F00DFF22C /* WorkoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkoutViewController.m; sourceTree = "<group>"; };
 		F07E450B24E3751C0007CF6E /* WorkoutTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F07E450E24E3751C0007CF6E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F07E450F24E3751C0007CF6E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -107,6 +110,8 @@
 				F040E6A324E8BF5C00DFF22C /* ApplicationModel.m */,
 				F040E69824E8A52E00DFF22C /* NewWorkoutViewController.h */,
 				F040E69924E8A52E00DFF22C /* NewWorkoutViewController.m */,
+				F040E6A824E9CA5F00DFF22C /* WorkoutViewController.h */,
+				F040E6A924E9CA5F00DFF22C /* WorkoutViewController.m */,
 				F0A952D324E88D7A00013DBF /* WorkoutType.h */,
 				F0A952D424E88D7A00013DBF /* WorkoutType.m */,
 				F040E69E24E8B56400DFF22C /* Workout.h */,
@@ -243,6 +248,7 @@
 			files = (
 				F07E452424E3751D0007CF6E /* main.m in Sources */,
 				F040E69A24E8A52E00DFF22C /* NewWorkoutViewController.m in Sources */,
+				F040E6AA24E9CA5F00DFF22C /* WorkoutViewController.m in Sources */,
 				F07E451924E3751C0007CF6E /* AnalyticsViewController.m in Sources */,
 				F07E451024E3751C0007CF6E /* AppDelegate.m in Sources */,
 				F040E6A424E8BF5C00DFF22C /* ApplicationModel.m in Sources */,
