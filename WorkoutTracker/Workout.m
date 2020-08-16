@@ -10,6 +10,13 @@
 
 @implementation Workout
 
+#pragma mark - Getters
+
+- (NSInteger)minutes
+{
+    return [self.endedAt timeIntervalSinceDate:self.startedAt] / 60;
+}
+
 #pragma mark - Realm
 
 + (NSArray *)requiredProperties

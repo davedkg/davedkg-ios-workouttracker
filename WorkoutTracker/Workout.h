@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSDate      *startedAt;
 @property NSDate      *endedAt;
 
+@property (nonatomic, readonly) NSInteger minutes;
+
 @end
 
 RLM_ARRAY_TYPE(Workout)
