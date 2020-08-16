@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) RLMNotificationToken *realmNotificationToken;
 @property (nonatomic, strong, readonly) RLMResults *workouts;
+@property (nonatomic, strong, readonly) RLMRealm   *realm;
 
 @end
 
@@ -26,9 +27,15 @@
     return [[Workout all] sortedResultsUsingKeyPath:@"startedAt" ascending:NO];
 }
 
+- (RLMRealm *)realm
+{
+    return [AppDelegate sharedAppDelegate].realm;
+}
+
 #pragma mark - Lifecycle
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     [self initializeWorkoutsNotifications];
@@ -57,7 +64,8 @@
     return [self.workouts count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WorkoutCell" forIndexPath:indexPath];
     Workout *workout      = [self.workouts objectAtIndex:indexPath.row];
     
@@ -67,25 +75,21 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
     return YES;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+        Workout *workout = [self.workouts objectAtIndex:indexPath.row];
+        
+        [self.realm transactionWithBlock:^() {
+            [self.realm deleteObject:workout];
+        }];
+    }
 }
-*/
 
 /*
 // Override to support rearranging the table view.
