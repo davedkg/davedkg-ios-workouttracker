@@ -10,24 +10,17 @@
 
 @implementation Workout
 
-#pragma mark - Lifecycle
-
-- (instancetype)init {
-    if ((self = [super init])) {
-        self._id = [RLMObjectId objectId];
-    }
-    return self;
-}
-
 #pragma mark - Realm
-
-+ (NSString *)primaryKey {
-    return @"_id";
-}
 
 + (NSArray *)requiredProperties
 {
-    return @[@"startedAt", @"endedAt", @"workout"];
+    NSMutableArray *requiredProperties = [[super requiredProperties] mutableCopy];
+    
+    [requiredProperties addObject:@"startedAt"];
+    [requiredProperties addObject:@"endedAt"];
+    [requiredProperties addObject:@"workout"];
+    
+    return [requiredProperties copy];
 }
 
 @end

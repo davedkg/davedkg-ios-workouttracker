@@ -7,14 +7,14 @@
 //
 
 #import <Realm/Realm.h>
+#import "ApplicationModel.h"
 
 @class WorkoutType;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Workout : RLMObject
+@interface Workout : ApplicationModel
 
-@property RLMObjectId *_id;
 @property WorkoutType *type;
 @property NSDate      *startedAt;
 @property NSDate      *endedAt;

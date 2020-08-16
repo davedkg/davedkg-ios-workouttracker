@@ -10,24 +10,15 @@
 
 @implementation WorkoutType
 
-#pragma mark - Lifecycle
-
-- (instancetype)init {
-    if ((self = [super init])) {
-        self._id = [RLMObjectId objectId];
-    }
-    return self;
-}
-
 #pragma mark - Realm
-
-+ (NSString *)primaryKey {
-    return @"_id";
-}
 
 + (NSArray *)requiredProperties
 {
-    return @[@"name"];
+    NSMutableArray *requiredProperties = [[super requiredProperties] mutableCopy];
+    
+    [requiredProperties addObject:@"name"];
+    
+    return [requiredProperties copy];
 }
 
 #pragma mark - XLFormOptionObject
@@ -42,18 +33,13 @@
     return self;
 }
 
-#pragma mark - Public Meethods
-
-+ (RLMResults *)all
-{
-    return [self allObjectsInRealm:[AppDelegate sharedAppDelegate].realm];
-}
+#pragma mark - Public Methods
 
 + (BOOL)hasWorkoutTypeWithName:(NSString *)name
 {
     NSString *condition = [NSString stringWithFormat:@"name == '%@'", name];
     
-    return 0 != [[[self all] objectsWhere:condition] count];
+    return 0 != [[[WorkoutType all] objectsWhere:condition] count];
 }
 
 @end

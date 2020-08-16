@@ -10,17 +10,30 @@
 #import "XLForm.h"
 #import "WorkoutType.h"
 
+#define WORKOUT_TYPE @"workoutType"
+#define STARTED_AT   @"startedAt"
+#define ENDED_AT     @"endedAt"
+
 @interface NewWorkoutViewController ()
 
-@property (nonatomic, strong, readonly) NSArray *workoutTypes;
+@property (nonatomic, strong, readonly) RLMRealm *realm;
+@property (nonatomic, strong, readonly) NSArray  *workoutTypes;
 
 @end
 
 @implementation NewWorkoutViewController
 
-@synthesize workoutTypes=_workoutTypes;
+@synthesize realm=_realm,workoutTypes=_workoutTypes;
 
 #pragma mark - Getters/Setters
+
+- (RLMRealm *)realm
+{
+    if (nil == _realm) {
+        _realm = [AppDelegate sharedAppDelegate].realm;
+    }
+    return _realm;
+}
 
 - (NSArray *)workoutTypes
 {
@@ -53,7 +66,17 @@
 
 - (IBAction)saveButtonPressed:(id)sender
 {
-    // TODO save
+    Workout *workout         = [[Workout alloc] initWithObjectId];
+    NSDictionary *formValues = [self formValues];
+    
+    workout.type      = [formValues objectForKey:WORKOUT_TYPE];
+    workout.startedAt = [formValues objectForKey:STARTED_AT];
+    workout.endedAt   = [formValues objectForKey:ENDED_AT];
+    
+    // Assumes valid object
+    [self.realm transactionWithBlock:^() {
+        [self.realm addObject:workout];
+    }];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -70,7 +93,7 @@
     section = [XLFormSectionDescriptor formSection];
     [form addFormSection:section];
     
-    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"workoutType"
+    row = [XLFormRowDescriptor formRowDescriptorWithTag:WORKOUT_TYPE
                                                 rowType:XLFormRowDescriptorTypeSelectorActionSheet
                                                   title:@"Type"];
     row.selectorOptions = self.workoutTypes;
@@ -81,14 +104,14 @@
     [form addFormSection:section];
 
     // startedAt
-    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"startedAat"
+    row = [XLFormRowDescriptor formRowDescriptorWithTag:STARTED_AT
                                                 rowType:XLFormRowDescriptorTypeDateTimeInline
                                                   title:@"Started At"];
     row.value = [NSDate dateWithTimeIntervalSinceNow:60*60*24];
     [section addFormRow:row];
     
     // endedAt
-    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"endedAt"
+    row = [XLFormRowDescriptor formRowDescriptorWithTag:ENDED_AT
                                                 rowType:XLFormRowDescriptorTypeDateTimeInline
                                                   title:@"Ended At"];
     row.value = [NSDate dateWithTimeIntervalSinceNow:60*60*24];

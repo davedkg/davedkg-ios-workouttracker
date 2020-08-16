@@ -106,7 +106,7 @@
     
     for (NSString *workoutTypeName in workoutTypeNames) {
         if (NO == [WorkoutType hasWorkoutTypeWithName:workoutTypeName]) {
-               workoutType = [[WorkoutType alloc] init];
+               workoutType = [[WorkoutType alloc] initWithObjectId];
                
                workoutType.name = workoutTypeName;
             
@@ -116,8 +116,12 @@
         }
     }
     
-//    for (WorkoutType *workoutType in [WorkoutType workoutTypes]) {
+//    for (WorkoutType *workoutType in [WorkoutType allObjects]) {
 //        NSLog(@"WorkoutType: %@", workoutType);
+//    }
+    
+//    for (Workout *workout in [Workout allObjects]) {
+//        NSLog(@"Workout: %@", workout);
 //    }
 }
 
