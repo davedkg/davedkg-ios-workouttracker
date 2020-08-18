@@ -16,6 +16,7 @@
 
 @interface AnalyticsViewController () <UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic, strong) RLMNotificationToken *realmNotificationToken;
 @property (nonatomic, strong, readonly) VBPieChart *chart;
 @property (nonatomic, strong, readonly) NSArray    *chartData;
 
@@ -79,13 +80,15 @@
     self.tableView.allowsSelection = NO;
     
     [self.chartView addSubview:self.chart];
+    [self updateChartData];
+    
+    [self initializeWorkoutsNotifications];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)dealloc
 {
-    [super viewWillAppear:animated];
-    
-    [self updateChartData];
+    [self.realmNotificationToken invalidate];
+    self.realmNotificationToken = nil;
 }
 
 #pragma mark - UITableViewDataSource
@@ -101,6 +104,7 @@
     NSDictionary *chartDataRow = [self.chartData objectAtIndex:indexPath.row];
     
     cell.textLabel.text       = [chartDataRow objectForKey:NAME];
+    cell.textLabel.textColor  = [chartDataRow objectForKey:COLOR];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ minutes", [chartDataRow objectForKey:VALUE]];
     
     return cell;
@@ -115,6 +119,7 @@
                      animation:YES
                       duration:0.4
                        options:VBPieChartAnimationFan];
+    [self.tableView reloadData];
 }
 
 - (UIColor *)colorForIndex:(int)index
@@ -131,6 +136,22 @@
         default:
             return [UIColor blackColor];
     }
+}
+
+#pragma mark - Initializers
+
+- (void)initializeWorkoutsNotifications
+{
+    __weak typeof(self) weakSelf = self;
+    self.realmNotificationToken = [[Workout all] addNotificationBlock:^(RLMResults<Workout *> *results, RLMCollectionChange *changes, NSError *error) {
+        
+        if (error) {
+            NSLog(@"Failed to open Realm on background worker: %@", error);
+            return;
+        }
+        
+        [weakSelf updateChartData];
+    }];
 }
 
 @end

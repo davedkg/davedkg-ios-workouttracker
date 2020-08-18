@@ -108,7 +108,7 @@
 - (void)seedWorkoutTypes
 {
     WorkoutType *workoutType;
-    NSArray *workoutTypeNames = @[@"Biking", @"Running", @"Yoga"];
+    NSArray *workoutTypeNames = @[@"Biking", @"Running", @"Yoga", @"Sleeping"];
     
     for (NSString *workoutTypeName in workoutTypeNames) {
         if (NO == [WorkoutType hasWorkoutTypeWithName:workoutTypeName]) {
