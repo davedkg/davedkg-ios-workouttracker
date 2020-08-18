@@ -10,16 +10,23 @@
 #import "VBPieChart.h"
 #import "WorkoutType.h"
 
-@interface AnalyticsViewController ()
+#define NAME  @"name"
+#define VALUE @"value"
+#define COLOR @"color"
 
-@property (nonatomic, strong, readwrite) VBPieChart *chart;
-@property (weak, nonatomic) IBOutlet UIView *chartView;
+@interface AnalyticsViewController () <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong, readonly) VBPieChart *chart;
+@property (nonatomic, strong, readonly) NSArray    *chartData;
+
+@property (weak, nonatomic) IBOutlet UIView      *chartView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation AnalyticsViewController
 
-@synthesize chart=_chart;
+@synthesize chart=_chart,chartData=_chartData;
 
 - (VBPieChart *)chart
 {
@@ -36,48 +43,78 @@
     return _chart;
 }
 
+- (NSArray *)chartData
+{
+    if (nil == _chartData) {
+        NSMutableArray *values = [@[] mutableCopy];
+        int index = 0;
+        
+        for (WorkoutType *workoutType in [WorkoutType all]) {
+            NSNumber *minutes = [workoutType calculateTotalMinutes];
+            
+            if (NO == [[NSNumber numberWithInteger:0] isEqualToNumber:minutes]) {
+                [values addObject:@{
+                    NAME  : workoutType.name,
+                    VALUE : minutes,
+                    COLOR : [self colorForIndex:index],
+                }];
+                
+                index++;
+            }
+        }
+        
+        _chartData = [values copy];
+    }
+    return _chartData;
+}
+
 # pragma mark - Lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    [self initChart];
+    self.tableView.delegate        = self;
+    self.tableView.dataSource      = self;
+    self.tableView.allowsSelection = NO;
+    
+    [self.chartView addSubview:self.chart];
 }
 
-# pragma mark - Initializers
-
-- (void)initChart
+- (void)viewWillAppear:(BOOL)animated
 {
-    [self.chartView addSubview:self.chart];
-    [self.chart setChartValues:[self chartData]
-                     animation:YES
-                      duration:0.4
-                       options:VBPieChartAnimationFan];
+    [super viewWillAppear:animated];
+    
+    [self updateChartData];
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.chartData count];
+}
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    UITableViewCell *cell      = [tableView dequeueReusableCellWithIdentifier:@"WorkoutTypeCell" forIndexPath:indexPath];
+    NSDictionary *chartDataRow = [self.chartData objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text       = [chartDataRow objectForKey:NAME];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ minutes", [chartDataRow objectForKey:VALUE]];
+    
+    return cell;
 }
 
 # pragma mark - Chart Helpers
 
-- (NSArray *)chartData
+- (void)updateChartData
 {
-    NSMutableArray *values = [@[] mutableCopy];
-    int index = 0;
-    
-    for (WorkoutType *workoutType in [WorkoutType all]) {
-        NSNumber *minutes = [workoutType calculateTotalMinutes];
-        
-        if (NO == [[NSNumber numberWithInteger:0] isEqualToNumber:minutes]) {
-            [values addObject:@{
-                @"name"  : workoutType.name,
-                @"value" : minutes,
-                @"color" : [self colorForIndex:index],
-            }];
-            
-            index++;
-        }
-    }
-    
-    return [values copy];
+    _chartData = nil;
+    [self.chart setChartValues:self.chartData
+                     animation:YES
+                      duration:0.4
+                       options:VBPieChartAnimationFan];
 }
 
 - (UIColor *)colorForIndex:(int)index
