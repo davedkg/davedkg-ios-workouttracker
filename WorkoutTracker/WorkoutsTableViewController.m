@@ -62,11 +62,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WorkoutCell" forIndexPath:indexPath];
-    Workout *workout      = [self.workouts objectAtIndex:indexPath.row];
+    UITableViewCell *cell    = [tableView dequeueReusableCellWithIdentifier:@"WorkoutCell" forIndexPath:indexPath];
+    Workout *workout         = [self.workouts objectAtIndex:indexPath.row];
     
-    cell.textLabel.text       = [NSString stringWithFormat:@"%@", workout.type.name];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld minutes", (long)workout.minutes];
+    cell.textLabel.text       = [NSString stringWithFormat:@"%@", workout.workoutType.name];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", workout.startedAt];
     
     return cell;
 }

@@ -66,9 +66,11 @@
     Workout *workout         = [[Workout alloc] initWithObjectId];
     NSDictionary *formValues = [self formValues];
     
-    workout.type      = [formValues objectForKey:WORKOUT_TYPE];
-    workout.startedAt = [formValues objectForKey:STARTED_AT];
-    workout.endedAt   = [formValues objectForKey:ENDED_AT];
+    workout.workoutType = [formValues objectForKey:WORKOUT_TYPE];
+    workout.startedAt   = [formValues objectForKey:STARTED_AT];
+    workout.endedAt     = [formValues objectForKey:ENDED_AT];
+    
+    [workout calculateMinutes];
     
     // Assumes valid object
     [self.realm transactionWithBlock:^() {

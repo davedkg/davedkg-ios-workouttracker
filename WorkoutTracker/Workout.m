@@ -7,15 +7,13 @@
 //
 
 #import "Workout.h"
+#import "WorkoutType.h"
+
+#define STARTED_AT @"startedAt"
+#define ENDED_AT   @"endedAt"
+#define MINUTES    @"minutes"
 
 @implementation Workout
-
-#pragma mark - Getters
-
-- (NSInteger)minutes
-{
-    return [self.endedAt timeIntervalSinceDate:self.startedAt] / 60;
-}
 
 #pragma mark - Realm
 
@@ -23,11 +21,19 @@
 {
     NSMutableArray *requiredProperties = [[super requiredProperties] mutableCopy];
     
-    [requiredProperties addObject:@"startedAt"];
-    [requiredProperties addObject:@"endedAt"];
-    [requiredProperties addObject:@"workout"];
+    [requiredProperties addObject:STARTED_AT];
+    [requiredProperties addObject:ENDED_AT];
+    [requiredProperties addObject:MINUTES];
     
     return [requiredProperties copy];
+}
+
+#pragma mark - Helpers
+
+// FIXME move me into a beforeSave callback
+- (void)calculateMinutes
+{
+    self.minutes = [NSNumber numberWithInteger:([self.endedAt timeIntervalSinceDate:self.startedAt] / 60)];
 }
 
 @end

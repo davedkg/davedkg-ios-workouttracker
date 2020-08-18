@@ -8,6 +8,8 @@
 
 #import "WorkoutType.h"
 
+#define MINUTES @"minutes"
+
 @implementation WorkoutType
 
 #pragma mark - Realm
@@ -19,6 +21,12 @@
     [requiredProperties addObject:@"name"];
     
     return [requiredProperties copy];
+}
+
++ (NSDictionary *)linkingObjectsProperties {
+    return @{
+        @"workouts": [RLMPropertyDescriptor descriptorWithClass:Workout.class propertyName:@"workoutType"],
+    };
 }
 
 #pragma mark - XLFormOptionObject
@@ -40,6 +48,13 @@
     NSString *condition = [NSString stringWithFormat:@"name == '%@'", name];
     
     return 0 != [[[WorkoutType all] objectsWhere:condition] count];
+}
+
+#pragma mark - Queries
+
+- (NSNumber *)calculateTotalMinutes
+{
+    return [self.workouts sumOfProperty:MINUTES];
 }
 
 @end

@@ -15,14 +15,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Workout : ApplicationModel
 
-@property WorkoutType *type;
-@property NSDate      *startedAt;
-@property NSDate      *endedAt;
+@property WorkoutType      *workoutType;
+@property NSDate           *startedAt;
+@property NSDate           *endedAt;
+@property NSNumber<RLMInt> *minutes;
 
-@property (nonatomic, readonly) NSInteger minutes;
+- (void)calculateMinutes;
 
 @end
-
-RLM_ARRAY_TYPE(Workout)
 
 NS_ASSUME_NONNULL_END

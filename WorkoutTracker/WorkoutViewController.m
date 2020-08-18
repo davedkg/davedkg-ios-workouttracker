@@ -169,7 +169,7 @@
 {
     [self setIsEditing:NO];
     
-    self.workoutTypeFormRow.value = self.workout.type;
+    self.workoutTypeFormRow.value = self.workout.workoutType;
     self.startedAtFormRow.value   = self.workout.startedAt;
     self.endedAtFormRow.value     = self.workout.endedAt;
 }
@@ -182,9 +182,11 @@
     
     // FIXME only update changed values
     [self.realm transactionWithBlock:^() {
-        self.workout.type      = [formValues objectForKey:WORKOUT_TYPE];
-        self.workout.startedAt = [formValues objectForKey:STARTED_AT];
-        self.workout.endedAt   = [formValues objectForKey:ENDED_AT];
+        self.workout.workoutType = [formValues objectForKey:WORKOUT_TYPE];
+        self.workout.startedAt   = [formValues objectForKey:STARTED_AT];
+        self.workout.endedAt     = [formValues objectForKey:ENDED_AT];
+        
+        [self.workout calculateMinutes];
     }];
 }
 
@@ -206,7 +208,7 @@
     section = [XLFormSectionDescriptor formSection];
     [form addFormSection:section];
     
-    self.workoutTypeFormRow.value    = self.workout.type;
+    self.workoutTypeFormRow.value    = self.workout.workoutType;
     self.workoutTypeFormRow.disabled = @(YES);
     [section addFormRow:self.workoutTypeFormRow];
 

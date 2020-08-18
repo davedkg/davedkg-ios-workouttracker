@@ -34,26 +34,32 @@
 {
     RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
     
-    config.schemaVersion  = 5;
+    config.schemaVersion  = 1;
     config.migrationBlock = ^(RLMMigration *migration, uint64_t oldSchemaVersion) {
-        if (oldSchemaVersion < 2) {
-            [migration enumerateObjects:WorkoutType.className
-                                  block:^(RLMObject *oldObject, RLMObject *newObject) {
-                newObject[@"_id"] = [RLMObjectId objectId];
-            }];
-        }
-        
-        if (oldSchemaVersion < 3) {
-            [migration enumerateObjects:WorkoutType.className
-                                  block:^(RLMObject *oldObject, RLMObject *newObject) {
-                newObject[@"workouts"] = @[];
-            }];
-        }
-        
-        if (oldSchemaVersion < 5) {
-            [migration enumerateObjects:Workout.className
-                                  block:^(RLMObject *oldObject, RLMObject *newObject) {}];
-        }
+//        if (oldSchemaVersion < 2) {
+//            [migration enumerateObjects:WorkoutType.className
+//                                  block:^(RLMObject *oldObject, RLMObject *newObject) {
+//                newObject[@"_id"] = [RLMObjectId objectId];
+//            }];
+//        }
+//
+//        if (oldSchemaVersion < 3) {
+//            [migration enumerateObjects:WorkoutType.className
+//                                  block:^(RLMObject *oldObject, RLMObject *newObject) {
+//                newObject[@"workouts"] = @[];
+//            }];
+//        }
+//
+//        if (oldSchemaVersion < 14) {
+//          [migration enumerateObjects:Workout.className
+//                                block:^(RLMObject *oldObject, RLMObject *newObject) {
+//              NSDate *startedAt = (NSDate *)oldObject[@"startedAt"];
+//              NSDate *endedAt   = (NSDate *)oldObject[@"endedAt"];
+//              NSNumber *minutes = [NSNumber numberWithInteger:([endedAt timeIntervalSinceDate:startedAt] / 60)];
+//
+//              newObject[@"minutes"] = minutes;
+//          }];
+//        }
     };
 
     config.objectClasses = @[

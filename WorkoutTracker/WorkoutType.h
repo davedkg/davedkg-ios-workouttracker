@@ -15,16 +15,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WorkoutType : ApplicationModel <XLFormOptionObject>
 
-@property NSString    *name;
-@property RLMArray<Workout *><Workout> *workouts;
+@property NSString *name;
+@property (readonly) RLMLinkingObjects *workouts;
 
 + (BOOL)hasWorkoutTypeWithName:(NSString *)name;
+- (NSNumber *)calculateTotalMinutes;
 
 - (NSString *)formDisplayText;
 - (id)formValue;
 
 @end
-
-RLM_ARRAY_TYPE(WorkoutType)
 
 NS_ASSUME_NONNULL_END
