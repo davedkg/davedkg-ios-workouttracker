@@ -12,7 +12,7 @@
 #import "WorkoutType.h"
 
 #define LOWER_TIMER_INTERVAL  1.0
-#define UPPER_TIMER_INTERVAL  3.0
+#define UPPER_TIMER_INTERVAL  2.0
 #define WORKOUT_TIME_INTERVAL 60 * 30
 
 @interface WorkoutBotService()
@@ -37,7 +37,7 @@
 {
     self = [super init];
     if (self) {
-        unsigned seed = 100;
+        unsigned seed = arc4random_uniform(100);
         [RandomUtils setSeed:seed];
     }
     return self;
