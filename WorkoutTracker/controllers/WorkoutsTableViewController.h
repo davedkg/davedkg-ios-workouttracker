@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface WorkoutsTableViewController : UITableViewController
+@interface WorkoutsViewController : UITableViewController
 
 @end
 

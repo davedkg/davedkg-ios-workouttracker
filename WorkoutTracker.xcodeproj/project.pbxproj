@@ -83,6 +83,57 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F040E6AB24ECB20F00DFF22C /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F07E451724E3751C0007CF6E /* AnalyticsViewController.h */,
+				F07E451824E3751C0007CF6E /* AnalyticsViewController.m */,
+				F040E69824E8A52E00DFF22C /* NewWorkoutViewController.h */,
+				F040E69924E8A52E00DFF22C /* NewWorkoutViewController.m */,
+				F040E6A824E9CA5F00DFF22C /* WorkoutViewController.h */,
+				F040E6A924E9CA5F00DFF22C /* WorkoutViewController.m */,
+				F040E6A524E9B99600DFF22C /* WorkoutsTableViewController.h */,
+				F040E6A624E9B99600DFF22C /* WorkoutsTableViewController.m */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		F040E6AC24ECB27800DFF22C /* models */ = {
+			isa = PBXGroup;
+			children = (
+				F040E6A224E8BF5C00DFF22C /* ApplicationModel.h */,
+				F040E6A324E8BF5C00DFF22C /* ApplicationModel.m */,
+				F040E69E24E8B56400DFF22C /* Workout.h */,
+				F040E69F24E8B56400DFF22C /* Workout.m */,
+				F0A952D324E88D7A00013DBF /* WorkoutType.h */,
+				F0A952D424E88D7A00013DBF /* WorkoutType.m */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		F040E6AD24ECB29000DFF22C /* config */ = {
+			isa = PBXGroup;
+			children = (
+				F07E450E24E3751C0007CF6E /* AppDelegate.h */,
+				F07E450F24E3751C0007CF6E /* AppDelegate.m */,
+				F07E452224E3751D0007CF6E /* Info.plist */,
+				F07E452324E3751D0007CF6E /* main.m */,
+				F0A952D624E88DD700013DBF /* PrefixHeader.pch */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
+		F040E6AE24ECB29C00DFF22C /* views */ = {
+			isa = PBXGroup;
+			children = (
+				F07E451F24E3751D0007CF6E /* LaunchScreen.storyboard */,
+				F07E451A24E3751C0007CF6E /* Main.storyboard */,
+				F07E451124E3751C0007CF6E /* SceneDelegate.h */,
+				F07E451224E3751C0007CF6E /* SceneDelegate.m */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		F07E450224E3751C0007CF6E = {
 			isa = PBXGroup;
 			children = (
@@ -104,30 +155,11 @@
 		F07E450D24E3751C0007CF6E /* WorkoutTracker */ = {
 			isa = PBXGroup;
 			children = (
-				F040E6A524E9B99600DFF22C /* WorkoutsTableViewController.h */,
-				F040E6A624E9B99600DFF22C /* WorkoutsTableViewController.m */,
-				F040E6A224E8BF5C00DFF22C /* ApplicationModel.h */,
-				F040E6A324E8BF5C00DFF22C /* ApplicationModel.m */,
-				F040E69824E8A52E00DFF22C /* NewWorkoutViewController.h */,
-				F040E69924E8A52E00DFF22C /* NewWorkoutViewController.m */,
-				F040E6A824E9CA5F00DFF22C /* WorkoutViewController.h */,
-				F040E6A924E9CA5F00DFF22C /* WorkoutViewController.m */,
-				F0A952D324E88D7A00013DBF /* WorkoutType.h */,
-				F0A952D424E88D7A00013DBF /* WorkoutType.m */,
-				F040E69E24E8B56400DFF22C /* Workout.h */,
-				F040E69F24E8B56400DFF22C /* Workout.m */,
-				F07E450E24E3751C0007CF6E /* AppDelegate.h */,
-				F07E450F24E3751C0007CF6E /* AppDelegate.m */,
-				F07E451124E3751C0007CF6E /* SceneDelegate.h */,
-				F07E451224E3751C0007CF6E /* SceneDelegate.m */,
-				F07E451724E3751C0007CF6E /* AnalyticsViewController.h */,
-				F07E451824E3751C0007CF6E /* AnalyticsViewController.m */,
-				F07E451A24E3751C0007CF6E /* Main.storyboard */,
 				F07E451D24E3751D0007CF6E /* Assets.xcassets */,
-				F07E451F24E3751D0007CF6E /* LaunchScreen.storyboard */,
-				F07E452224E3751D0007CF6E /* Info.plist */,
-				F07E452324E3751D0007CF6E /* main.m */,
-				F0A952D624E88DD700013DBF /* PrefixHeader.pch */,
+				F040E6AD24ECB29000DFF22C /* config */,
+				F040E6AB24ECB20F00DFF22C /* controllers */,
+				F040E6AC24ECB27800DFF22C /* models */,
+				F040E6AE24ECB29C00DFF22C /* views */,
 			);
 			path = WorkoutTracker;
 			sourceTree = "<group>";
@@ -398,8 +430,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9RM8BN2R29;
-				GCC_PREFIX_HEADER = "${SRCROOT}/WorkoutTracker/PrefixHeader.pch";
-				INFOPLIST_FILE = WorkoutTracker/Info.plist;
+				GCC_PREFIX_HEADER = "${SRCROOT}/WorkoutTracker/config/PrefixHeader.pch";
+				INFOPLIST_FILE = WorkoutTracker/config/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -417,8 +449,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9RM8BN2R29;
-				GCC_PREFIX_HEADER = "${SRCROOT}/WorkoutTracker/PrefixHeader.pch";
-				INFOPLIST_FILE = WorkoutTracker/Info.plist;
+				GCC_PREFIX_HEADER = "${SRCROOT}/WorkoutTracker/config/PrefixHeader.pch";
+				INFOPLIST_FILE = WorkoutTracker/config/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

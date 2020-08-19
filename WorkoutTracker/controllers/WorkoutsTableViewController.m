@@ -11,7 +11,7 @@
 #import "WorkoutType.h"
 #import "WorkoutViewController.h"
 
-@interface WorkoutsTableViewController ()
+@interface WorkoutsViewController ()
 
 @property (nonatomic, strong) RLMNotificationToken *realmNotificationToken;
 @property (nonatomic, strong, readonly) RLMResults *workouts;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation WorkoutsTableViewController
+@implementation WorkoutsViewController
 
 #pragma mark - Getters
 
