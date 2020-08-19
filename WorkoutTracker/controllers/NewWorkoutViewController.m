@@ -70,12 +70,7 @@
     workout.startedAt   = [formValues objectForKey:STARTED_AT];
     workout.endedAt     = [formValues objectForKey:ENDED_AT];
     
-    [workout calculateMinutes];
-    
-    // Assumes valid object
-    [self.realm transactionWithBlock:^() {
-        [self.realm addObject:workout];
-    }];
+    [workout create];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

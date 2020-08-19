@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSArray *)requiredProperties;
 + (RLMResults *)all;
 
+- (void)create;
+- (void)destroy;
+
 @end
 
 NS_ASSUME_NONNULL_END

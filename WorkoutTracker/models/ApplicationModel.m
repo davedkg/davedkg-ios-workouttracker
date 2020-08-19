@@ -8,7 +8,20 @@
 
 #import "ApplicationModel.h"
 
+@interface ApplicationModel()
+
+@property (nonatomic, readonly) RLMRealm *realm;
+
+@end
+
 @implementation ApplicationModel
+
+#pragma mark - Getters/Setters
+
+- (RLMRealm *)realm
+{
+    return [AppDelegate sharedAppDelegate].realm;
+}
 
 #pragma mark - Lifecycle
 
@@ -33,6 +46,20 @@
 + (RLMResults *)all
 {
     return [self allObjectsInRealm:[AppDelegate sharedAppDelegate].realm];
+}
+
+- (void)create
+{
+    [self.realm transactionWithBlock:^() {
+        [self.realm addObject:self];
+    }];
+}
+
+- (void)destroy
+{
+    [self.realm transactionWithBlock:^() {
+        [self.realm deleteObject:self];
+    }];
 }
 
 @end

@@ -73,11 +73,7 @@
     workout.startedAt   = startedAt;
     workout.endedAt     = endedAt;
     
-    [workout calculateMinutes];
-    
-    [self.realm transactionWithBlock:^() {
-        [self.realm addObject:workout];
-    }];
+    [workout create];
 }
 
 - (NSDate *)generateRandomDateWithinDaysBeforeToday:(NSUInteger)daysBack {

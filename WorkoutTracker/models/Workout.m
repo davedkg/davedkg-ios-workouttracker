@@ -28,9 +28,14 @@
     return [requiredProperties copy];
 }
 
+- (void)create
+{
+    [self calculateMinutes];
+    [super create];
+}
+
 #pragma mark - Helpers
 
-// FIXME move me into a beforeSave callback
 - (void)calculateMinutes
 {
     self.minutes = [NSNumber numberWithInteger:([self.endedAt timeIntervalSinceDate:self.startedAt] / 60)];

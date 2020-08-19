@@ -112,13 +112,11 @@
     
     for (NSString *workoutTypeName in workoutTypeNames) {
         if (NO == [WorkoutType hasWorkoutTypeWithName:workoutTypeName]) {
-               workoutType = [[WorkoutType alloc] initWithObjectId];
+            workoutType = [[WorkoutType alloc] initWithObjectId];
                
-               workoutType.name = workoutTypeName;
+            workoutType.name = workoutTypeName;
             
-               [self.realm transactionWithBlock:^() {
-                   [self.realm addObject:workoutType];
-               }];
+            [workoutType create];
         }
     }
     

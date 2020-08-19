@@ -134,9 +134,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         Workout *workout = [self.workouts objectAtIndex:indexPath.row];
         
-        [self.realm transactionWithBlock:^() {
-            [self.realm deleteObject:workout];
-        }];
+        [workout destroy];
     }
 }
 
