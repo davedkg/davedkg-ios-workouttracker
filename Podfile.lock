@@ -1,4 +1,5 @@
 PODS:
+  - RandomUtils (0.2.4)
   - Realm (10.0.0-beta.2):
     - Realm/Headers (= 10.0.0-beta.2)
   - Realm/Headers (10.0.0-beta.2)
@@ -6,21 +7,24 @@ PODS:
   - XLForm (4.1.0)
 
 DEPENDENCIES:
+  - RandomUtils (~> 0.2.4)
   - Realm (= 10.0.0-beta.2)
   - VBPieChart (~> 1.2.1)
   - XLForm (~> 4.1.0)
 
 SPEC REPOS:
   trunk:
+    - RandomUtils
     - Realm
     - VBPieChart
     - XLForm
 
 SPEC CHECKSUMS:
+  RandomUtils: ccadea8fccadcc58d36ef813ddff8dbf15dd2258
   Realm: 211e32e680c354c9b1a2bdc0e3aeb01c25849641
   VBPieChart: dc43077e24bf56f53d8f645eb8369f91ecc6f136
   XLForm: 7ee02761be8a369d1ad1bbffe738b97083d94f3e
 
-PODFILE CHECKSUM: 840724b2fc6865edc37a4d7efe807f9e75cdb225
+PODFILE CHECKSUM: 6052ecae27e13267422115cf288be057be4691f7
 
 COCOAPODS: 1.9.3

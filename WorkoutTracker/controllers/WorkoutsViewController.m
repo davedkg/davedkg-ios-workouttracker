@@ -6,22 +6,28 @@
 //  Copyright © 2020 David Guilfoyle. All rights reserved.
 //
 
-#import "WorkoutsTableViewController.h"
+#import "WorkoutsViewController.h"
 #import "Workout.h"
 #import "WorkoutType.h"
 #import "WorkoutViewController.h"
+#import "WorkoutBotService.h"
 
 @interface WorkoutsViewController ()
 
-@property (nonatomic, strong) RLMNotificationToken *realmNotificationToken;
-@property (nonatomic, strong, readonly) RLMResults *workouts;
-@property (nonatomic, strong, readonly) RLMRealm   *realm;
+@property (nonatomic, strong) RLMNotificationToken        *realmNotificationToken;
+@property (nonatomic, strong, readonly) RLMResults        *workouts;
+@property (nonatomic, strong, readonly) RLMRealm          *realm;
+@property (nonatomic, strong, readonly) UIBarButtonItem   *playButton;
+@property (nonatomic, strong, readonly) UIBarButtonItem   *pauseButton;
+@property (nonatomic, strong, readonly) WorkoutBotService *workoutBot;
 
 @end
 
 @implementation WorkoutsViewController
 
 #pragma mark - Getters
+
+@synthesize playButton=_playButton,pauseButton=_pauseButton,workoutBot=_workoutBot;
 
 - (RLMResults *)workouts
 {
@@ -33,19 +39,71 @@
     return [AppDelegate sharedAppDelegate].realm;
 }
 
+- (UIBarButtonItem *)playButton
+{
+    if (nil == _playButton) {
+        _playButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay
+                                                                    target:self
+                                                                    action:@selector(playButtonPressed)];
+    }
+    return _playButton;
+}
+
+- (UIBarButtonItem *)pauseButton
+{
+    if (nil == _pauseButton) {
+        _pauseButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause
+                                                                     target:self
+                                                                     action:@selector(pauseButtonPressed)];
+    }
+    return _pauseButton;
+}
+
+- (WorkoutBotService *)workoutBot
+{
+    if (nil == _workoutBot) {
+        _workoutBot = [[WorkoutBotService alloc] init];
+    }
+    return _workoutBot;
+}
+
 #pragma mark - Lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    self.navigationItem.leftBarButtonItem = self.playButton;
     [self initializeWorkoutsNotifications];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    if (self.navigationItem.leftBarButtonItem == self.pauseButton) {
+        [self pauseButtonPressed];
+    }
 }
 
 - (void)dealloc
 {
     [self.realmNotificationToken invalidate];
     self.realmNotificationToken = nil;
+}
+
+#pragma mark - Actions
+
+- (void)playButtonPressed
+{
+    [self.workoutBot startWorkoutBot];
+    self.navigationItem.leftBarButtonItem = self.pauseButton;
+}
+
+- (void)pauseButtonPressed
+{
+    [self.workoutBot stopWorkoutBot];
+    self.navigationItem.leftBarButtonItem = self.playButton;
 }
 
 #pragma mark - Table view data source

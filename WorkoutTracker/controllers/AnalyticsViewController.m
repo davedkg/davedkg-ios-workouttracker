@@ -9,6 +9,7 @@
 #import "AnalyticsViewController.h"
 #import "VBPieChart.h"
 #import "WorkoutType.h"
+#import "WorkoutBotService.h"
 
 #define NAME  @"name"
 #define VALUE @"value"
@@ -16,18 +17,24 @@
 
 @interface AnalyticsViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) RLMNotificationToken *realmNotificationToken;
-@property (nonatomic, strong, readonly) VBPieChart *chart;
-@property (nonatomic, strong, readonly) NSArray    *chartData;
+@property (nonatomic, strong) RLMNotificationToken        *realmNotificationToken;
+@property (nonatomic, strong, readonly) VBPieChart        *chart;
+@property (nonatomic, strong, readonly) NSArray           *chartData;
+@property (nonatomic, strong, readonly) UIBarButtonItem   *playButton;
+@property (nonatomic, strong, readonly) UIBarButtonItem   *pauseButton;
+@property (nonatomic, strong, readonly) WorkoutBotService *workoutBot;
+@property (weak, nonatomic) IBOutlet    UIView            *chartView;
+@property (weak, nonatomic) IBOutlet    UITableView       *tableView;
 
-@property (weak, nonatomic) IBOutlet UIView      *chartView;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation AnalyticsViewController
 
 @synthesize chart=_chart,chartData=_chartData;
+@synthesize playButton=_playButton,pauseButton=_pauseButton,workoutBot=_workoutBot;
+
+#pragma mark - Getters
 
 - (VBPieChart *)chart
 {
@@ -69,6 +76,34 @@
     return _chartData;
 }
 
+- (UIBarButtonItem *)playButton
+{
+    if (nil == _playButton) {
+        _playButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay
+                                                                    target:self
+                                                                    action:@selector(playButtonPressed)];
+    }
+    return _playButton;
+}
+
+- (UIBarButtonItem *)pauseButton
+{
+    if (nil == _pauseButton) {
+        _pauseButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause
+                                                                     target:self
+                                                                     action:@selector(pauseButtonPressed)];
+    }
+    return _pauseButton;
+}
+
+- (WorkoutBotService *)workoutBot
+{
+    if (nil == _workoutBot) {
+        _workoutBot = [[WorkoutBotService alloc] init];
+    }
+    return _workoutBot;
+}
+
 # pragma mark - Lifecycle
 
 - (void)viewDidLoad
@@ -82,13 +117,38 @@
     [self.chartView addSubview:self.chart];
     [self updateChartData];
     
+    self.navigationItem.leftBarButtonItem = self.playButton;
+    
     [self initializeWorkoutsNotifications];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    if (self.navigationItem.leftBarButtonItem == self.pauseButton) {
+        [self pauseButtonPressed];
+    }
 }
 
 - (void)dealloc
 {
     [self.realmNotificationToken invalidate];
     self.realmNotificationToken = nil;
+}
+
+#pragma mark - Actions
+
+- (void)playButtonPressed
+{
+    [self.workoutBot startWorkoutBot];
+    self.navigationItem.leftBarButtonItem = self.pauseButton;
+}
+
+- (void)pauseButtonPressed
+{
+    [self.workoutBot stopWorkoutBot];
+    self.navigationItem.leftBarButtonItem = self.playButton;
 }
 
 #pragma mark - UITableViewDataSource
